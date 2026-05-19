@@ -16,6 +16,14 @@ function People() {
 
     ];
     const firstTeenager = people.find(person => person.age >= 10 && person.age <= 16);
+    //Sxep danh sach theo thứ tự tăng dần theo Tuổi, sau đó theo Tên. Hiển ra bảng: ID, Name, Age
+    const sortedPeople = [...people].sort((a, b) => {
+        if (a.age === b.age) {
+            return a.name.localeCompare(b.name);
+        }
+        return a.age - b.age;
+    });
+
     return (
         <div>
             <h1>People List</h1>
@@ -33,6 +41,26 @@ function People() {
             ) : (
                 <p>No teenager found.</p>
             )}
+            {/* Hiện ra bảng */}
+                <h2>Sorted People:</h2>
+                <table></table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {sortedPeople.map((person) => (
+                            <tr key={person.id}>
+                                <td>{person.id}</td>
+                                <td>{person.name}</td>
+                                <td>{person.age}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
         </div>
     );
 }
