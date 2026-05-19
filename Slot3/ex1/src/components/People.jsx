@@ -43,7 +43,7 @@ function People() {
             )}
             {/* Hiện ra bảng */}
                 <h2>Sorted People:</h2>
-                <table></table>
+                <table>
                     <thead>
                         <tr>
                             <th>ID</th>
